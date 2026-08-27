@@ -6,6 +6,9 @@
 
     - run docker only 1 service for example run db only `docker compose up -d db`
     
+    - generate model: `docker compose exec web bin/rails generate model PaymentMethod name:string code:string enabled:boolean`
+
+    - migrate model: `docker compose exec web bin/rails db:migrate`
 
 
 # Milestone Notes
