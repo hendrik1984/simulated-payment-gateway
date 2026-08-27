@@ -13,8 +13,7 @@ export default class extends Controller {
       const length = this.inputTarget.value.length
 
       this.inputTarget.setSelectionRange(length, length)
-    })
-    
+    })    
   }
 
   search() {
@@ -22,13 +21,9 @@ export default class extends Controller {
 
     this.timeout = setTimeout(() => {
       this.element.requestSubmit()
-    }, 500)
+    }, 600)
 
     document.getElementById("search")
-  }
-
-  focusInput() {
-    this.inputTarget.focus()
   }
 
   disconnect() {
