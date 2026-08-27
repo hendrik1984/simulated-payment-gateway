@@ -1,10 +1,190 @@
 /*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+* This is a manifest file that'll be compiled into application.css.
+*
+* With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+* application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+* cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+* depending on specificity.
+*
+* Consider organizing styles into separate files for maintainability.
+*/
+
+
+/* ----- reset & base ----- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f9fafc;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 1.5rem;
+}
+
+/* ----- main card: centered, max-width 5xl equivalent ----- */
+.container {
+    max-width: 72rem;        /* ~5xl */
+    width: 100%;
+    background: transparent;
+    margin: 0 auto;
+}
+
+/* ----- header ----- */
+.page-header {
+    margin-bottom: 1.75rem;
+}
+
+.page-header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #111827;        /* gray-900 */
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+}
+
+.page-header p {
+    margin-top: 0.3rem;
+    font-size: 0.95rem;
+    color: #4b5563;        /* gray-600 */
+}
+
+/* ----- table wrapper (card) ----- */
+.table-card {
+    background: #ffffff;
+    border: 1px solid #d1d5db;   /* gray-200 */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+/* ----- table ----- */
+.payment-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+/* header row */
+.payment-table thead {
+    background: #f9fafb;   /* gray-50 */
+}
+
+.payment-table thead th {
+    padding: 0.85rem 1.5rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #6b7280;        /* gray-500 */
+    border-bottom: 1px solid #e5e7eb;
+    white-space: nowrap;
+}
+
+/* align right for 'Action' header */
+.payment-table thead th:last-child {
+    text-align: right;
+}
+
+/* body rows */
+.payment-table tbody tr {
+    border-bottom: 1px solid #e5e7eb;
+    background: #ffffff;
+}
+
+.payment-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.payment-table tbody td {
+    padding: 1rem 1.5rem;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+/* column: Name */
+.col-name {
+    font-weight: 600;
+    color: #111827;        /* gray-900 */
+}
+
+/* column: Code */
+.col-code {
+    color: #4b5563;        /* gray-600 */
+}
+
+/* column: Status */
+.status-enabled {
+    color: #16a34a;        /* green-600 */
+    font-weight: 600;
+}
+
+.status-disabled {
+    color: #dc2626;        /* red-600 */
+    font-weight: 600;
+}
+
+/* column: Action (right aligned) */
+.col-action {
+    text-align: right;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    padding: 0.2rem 0.4rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #2563eb;        /* blue-600 */
+    cursor: pointer;
+    transition: color 0.15s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.action-btn:hover {
+    color: #1e40af;        /* blue-800 */
+    text-decoration: underline;
+}
+
+.action-btn:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* ----- responsive tweaks (small screens) ----- */
+@media (max-width: 640px) {
+    .payment-table thead th,
+    .payment-table tbody td {
+    padding: 0.75rem 0.75rem;
+    }
+
+    .payment-table tbody td {
+    white-space: normal;   /* allow wrap if needed */
+    }
+
+    .col-action {
+    text-align: right;
+    }
+}
+
+/* keep action column tight on very small screens */
+@media (max-width: 480px) {
+    .payment-table thead th,
+    .payment-table tbody td {
+    padding: 0.6rem 0.5rem;
+    font-size: 0.85rem;
+    }
+
+    .action-btn {
+    font-size: 0.85rem;
+    }
+}
