@@ -1,0 +1,30 @@
+services:
+  web:
+    build:
+      context: .
+    command: bin/rails server -b 0.0.0.0
+    volumes:
+      - .:/app
+    ports:
+      - "3001:3000"
+    environment:
+      DATABASE_HOST: db
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_NAME: simulated_payment_gateway_development
+    depends_on:
+      - db
+    stdin_open: true
+    tty: true
+
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: simulated_payment_gateway_development
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
