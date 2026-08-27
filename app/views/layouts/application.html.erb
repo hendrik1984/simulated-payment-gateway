@@ -21,6 +21,11 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <!-- Page-specific styles -->
+    <% if content_for?(:page_styles) %>
+      <%= yield :page_styles %>
+    <% end %>
   </head>
 
   <body>

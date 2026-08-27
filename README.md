@@ -16,7 +16,7 @@
 
 ### Current plan:
 
-### 4.A.1 — New Rails Project [HERE]
+### 4.A.1 — New Rails Project 
 + New, separate Rails application
 + Docker
 + PostgreSQL

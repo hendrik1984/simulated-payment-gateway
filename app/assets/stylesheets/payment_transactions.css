@@ -1,0 +1,177 @@
+/* ----- reset & base ----- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f9fafc;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 1.5rem;
+}
+
+/* ----- main card: centered, max-width 7xl equivalent ----- */
+.container {
+    max-width: 80rem;        /* ~7xl */
+    width: 100%;
+    background: transparent;
+    margin: 0 auto;
+}
+
+/* ----- header ----- */
+.page-header {
+    margin-bottom: 1.75rem;
+}
+
+.page-header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #111827;        /* gray-900 */
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+}
+
+.page-header p {
+    margin-top: 0.3rem;
+    font-size: 0.95rem;
+    color: #4b5563;        /* gray-600 */
+}
+
+/* ----- table card (wrapper) ----- */
+.search-card {
+    background: #ffffff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    margin-bottom: 1rem;
+}
+
+/* ----- table card (wrapper) ----- */
+.table-card {
+    background: #ffffff;
+    border: 1px solid #d1d5db;   /* gray-200 */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+/* ----- table ----- */
+.payment-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+/* header row */
+.payment-table thead {
+    background: #f9fafb;   /* gray-50 */
+}
+
+.payment-table thead th {
+    padding: 0.85rem 1.5rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #6b7280;        /* gray-500 */
+    border-bottom: 1px solid #e5e7eb;
+    white-space: nowrap;
+}
+
+/* body rows */
+.payment-table tbody tr {
+    border-bottom: 1px solid #e5e7eb;
+    background: #ffffff;
+}
+
+.payment-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.payment-table tbody td {
+    padding: 1rem 1.5rem;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+/* column: Reference */
+.col-reference {
+    font-weight: 600;
+    color: #111827;        /* gray-900 */
+}
+
+/* column: Amount */
+.col-amount {
+    color: #374151;        /* gray-700 */
+}
+
+/* column: Payment Method */
+.col-method {
+    color: #374151;        /* gray-700 */
+}
+
+/* column: Status */
+.col-status {
+    color: #374151;        /* gray-700 */
+}
+
+/* status badge variations (optional, but keeps it clean) */
+.status-completed {
+    color: #16a34a;
+    font-weight: 500;
+}
+.status-pending {
+    color: #d97706;
+    font-weight: 500;
+}
+.status-failed {
+    color: #dc2626;
+    font-weight: 500;
+}
+
+/* column: Created */
+.col-created {
+    color: #6b7280;        /* gray-500 */
+}
+
+/* ----- responsive tweaks (small screens) ----- */
+@media (max-width: 768px) {
+    .payment-table thead th,
+    .payment-table tbody td {
+    padding: 0.75rem 0.75rem;
+    font-size: 0.85rem;
+    }
+
+    .payment-table tbody td {
+    white-space: normal;   /* allow wrap if needed */
+    }
+
+    .container {
+    padding: 0 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .payment-table thead th,
+    .payment-table tbody td {
+    padding: 0.6rem 0.5rem;
+    font-size: 0.8rem;
+    }
+
+    .page-header h1 {
+    font-size: 1.4rem;
+    }
+}
+
+/* optional: subtle hover row effect */
+.payment-table tbody tr:hover {
+    background-color: #f9fafb;
+    transition: background-color 0.15s ease;
+}

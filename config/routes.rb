@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+  get "payment_transactions/index"
+  
   resources :payment_methods, only: [:index] do
     member do
       patch :toggle
     end
   end
+
+  resources :payment_transactions, only: [:index]
 
   namespace :api do
     namespace :v1 do

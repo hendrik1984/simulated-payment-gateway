@@ -1,0 +1,64 @@
+<% content_for :page_styles do %>
+  <%= stylesheet_link_tag 'payment_transactions' %>
+<% end %>
+
+<div class="container">
+    <!-- header -->
+    <div class="page-header">
+        <h1>Payment Transactions</h1>
+        <p>Monitor payment requests received by the gateway.</p>
+    </div>
+
+    <div class="search-card">
+        <%= form_with(
+            url: payment_transactions_path,
+            method: :get,
+            data: {
+                controller: "payment-transactions-search"
+            }
+            ) do |form| %>
+
+            <%= form.label :q, "Search", class: "" %>
+
+            <%= form.search_field :q,
+                value: params[:q],
+                placeholder: "Search by reference or currency...",
+                class: "",
+                autocomplete: "off",
+                data: {
+                    payment_transactions_search_target: "input",
+                    action: "input->payment-transactions-search#search"
+                } %>
+            
+        <% end %>
+    </div>
+
+    <!-- table card -->
+    <div class="table-card">
+        <table class="payment-table">
+        <thead>
+            <tr>
+                <th>Reference</th>
+                <th>Amount</th>
+                <th>Payment Method</th>
+                <th>Status</th>
+                <th>Created</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @payment_transactions.each do |pt| %>
+                <tr>
+                    <td class="col-reference"><%= pt.reference %></td>
+                    <td class="col-amount"><%= pt.currency %> <%= pt.amount%></td>
+                    <td class="col-method"><%= pt.payment_method.name %></td>
+                    <td class="col-status"><span class="status-completed"><%= pt.status %></span></td>
+                    <td class="col-created"><%= pt.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+
+<div class="">
+    <%= paginate @payment_transactions %>
+</div>
