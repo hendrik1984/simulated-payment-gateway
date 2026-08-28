@@ -38,7 +38,7 @@
 + View transaction details
 + View transaction status
 
-### 4.A.5 — Gateway API [HERE]
+### 4.A.5 — Gateway API
 + Receive payment/deposit requests from Digital Bank
 + Create payment transaction
 + Return appropriate API response
@@ -48,7 +48,7 @@
 + Shared API key stored in .env
 + No API-key model/database storage
 
-### 4.A.7 — Payment Transaction Processing
+### 4.A.7 — Payment Transaction Processing [HERE]
 + Payment starts as pending
 + Each transaction gets its own randomly generated processing delay
 + Delay: randomly 1–10 minutes
