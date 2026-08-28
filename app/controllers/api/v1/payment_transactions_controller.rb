@@ -24,6 +24,8 @@ class Api::V1::PaymentTransactionsController < ApplicationController
         )
 
         if payment_transaction.save
+            PaymentTransactionPublisher.publish(payment_transaction)
+
             render json: {
                 id: payment_transaction.id,
                 reference: payment_transaction.reference,

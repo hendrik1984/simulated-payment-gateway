@@ -10,6 +10,7 @@ class PaymentTransaction < ApplicationRecord
 
   private
   def generate_processing_delay
-    self.processing_delay_seconds ||= rand(120..600)
+    # self.processing_delay_seconds ||= rand(120..600)
+    self.processing_delay_seconds ||= rand(10..40)
   end
 end

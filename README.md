@@ -10,6 +10,9 @@
 
     - migrate model: `docker compose exec web bin/rails db:migrate`
 
+## RabbitMQ
+    - Run the workder command via docker: docker compose exec web bin/rails runner "PaymentTransactionWorker.start"
+
 
 # Milestone Notes
 ## Milestone 4.A — Simulated Payment Gateway
