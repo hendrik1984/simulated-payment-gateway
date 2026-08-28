@@ -16,6 +16,8 @@ services:
       - db
     stdin_open: true
     tty: true
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   db:
     image: postgres:17

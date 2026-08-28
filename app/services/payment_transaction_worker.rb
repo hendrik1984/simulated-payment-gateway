@@ -49,5 +49,7 @@ class PaymentTransactionWorker
         )
 
         puts "Finished delay for transaction #{payment_transaction.id} result: #{result}\n\n"
+
+        DigitalBankWebhook.send(payment_transaction)
     end
 end
