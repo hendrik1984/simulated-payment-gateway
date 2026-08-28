@@ -38,7 +38,7 @@
 + View transaction details
 + View transaction status
 
-### 4.A.5 — Gateway API
+### 4.A.5 — Gateway API [HERE]
 + Receive payment/deposit requests from Digital Bank
 + Create payment transaction
 + Return appropriate API response

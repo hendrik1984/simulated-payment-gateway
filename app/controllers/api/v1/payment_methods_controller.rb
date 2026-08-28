@@ -1,4 +1,6 @@
 class Api::V1::PaymentMethodsController < ApplicationController
+  include ApiAuthenticatable
+  
   def index
     @payment_methods = PaymentMethod.where(enabled: true).order(:name)
 
